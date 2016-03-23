@@ -22,6 +22,7 @@ ENTRY
     booktitle
     bookauthor
     chapter
+	doi
     edition
     editor
     compiler
@@ -464,6 +465,8 @@ FUNCTION {bbl.page}   %   { "\bblp."
       if$}
   if$
 }
+
+FUNCTION { bbl.doi }     { "DOI:" }
 
 FUNCTION {bbl.ppages}%    { "\bblPp." }
 {  curlanguage "english" =
@@ -1021,6 +1024,15 @@ FUNCTION {format.url}
   if$
 }
 
+FUNCTION {format.doi}
+{ doi empty$
+    { "" }
+    { after.sentence 'output.state :=
+      "DOI:  " doi * "" *
+    }
+  if$
+}
+
 FUNCTION {format.annote}
 { annote empty$
     { "" }
@@ -1035,6 +1047,15 @@ FUNCTION {format.annoteurl}       %%%%%%%% правлено
     { "" }
 { after.sentence 'output.state :=
   "URL:" "~" * url * " " * "\BibAnnote{" * annote * "}" *
+}
+  if$
+}
+
+FUNCTION {format.annotedoi}       %%%%%%%% правлено
+{ annote empty$ doi empty$ or
+    { "" }
+{ after.sentence 'output.state :=
+  "DOI:" "~" * doi * " " * "\BibAnnote{" * annote * "}" *
 }
   if$
 }
@@ -1061,6 +1082,7 @@ FUNCTION {article}
   new.sentence
   format.url output
   format.annote output
+  format.doi output
   fin.entry
 }
 
