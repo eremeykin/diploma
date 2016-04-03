@@ -458,28 +458,21 @@
 	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; По таблице 17 приведенной в \cite{metoda:Economy} определено значение $K_\textup{\scriptsize{Р}} = 1,45$.\newline
 	Значение коэффициента $K_\textup{\scriptsize{В}}$ определяют из выражения:
 	\begin{equation}\label{eq:KV}
-	K_\textup{\scriptsize{В}} = \frac{
-		K_\textup{\scriptsize{П}} \cdot n_\textup{\scriptsize{П}} +
-		K_\textup{\scriptsize{НС}} \cdot n_\textup{\scriptsize{НС}}+
-		K_\textup{\scriptsize{Б}} \cdot n_\textup{\scriptsize{Б}}
-	} {n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
+	K_\textup{\scriptsize{В}} = \frac{K_\textup{\scriptsize{П}} \cdot n_\textup{\scriptsize{П}} + K_\textup{\scriptsize{НС}} \cdot n_\textup{\scriptsize{НС}}+ K_\textup{\scriptsize{Б}} \cdot n_\textup{\scriptsize{Б}}}{n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
 	\end{equation} 
 	где $ K_\textup{\scriptsize{П}}$, $ K_\textup{\scriptsize{НС}} $,  $ K_\textup{\scriptsize{Б}}$~--~значения коэффициентов учета вида информации для переменной, нормативно-справочной информации и баз данных соответственно. Согласно таблице 18 методических указаний \cite{metoda:Economy} для группы новизны <<Б>>:	$ K_\textup{\scriptsize{П}} = 1,20; \enspace K_\textup{\scriptsize{НС}} = 1,08; \enspace K_\textup{\scriptsize{Б}} =3,12	$. \newline
 	\phantom{где\space} $n_\textup{\scriptsize{П}}$, $n_\textup{\scriptsize{НС}}$, $n_\textup{\scriptsize{Б}}$~--~количество наборов данных переменной, нормативно-справочной информации и баз данных соответственно. Для разрабатываемой интегрированной системы $n_\textup{\scriptsize{П}}=2; \enspace n_\textup{\scriptsize{НС}}=1; \enspace n_\textup{\scriptsize{Б}}=0$.  
 
 	После подстановки определенных значений коэффициентов учета вида информации и количества наборов данных в формулу (\ref{eq:KV}) получаем:
 	\[
-		K_\textup{\scriptsize{В}} = \frac{
-			1,20 \cdot 2 +
-			1,08 \cdot 1+
-			3,12 \cdot 0
-		} {2 + 1 + 0} = 1,16
+		K_\textup{\scriptsize{В}} = \frac{1,20 \cdot 2 + 1,08 \cdot 1+ 3,12 \cdot 0	} {2 + 1 + 0} = 1,16
 	\]
 	Для рассчитанного значения $K_\textup{\scriptsize{В}}$ по формуле (\ref{eq:TP}) получаем значение трудоемкости выполнения технического проекта:
 	\[
 		T_\textup{\scriptsize{ТП}} = (89 + 64) \cdot 1,16 \cdot 1,45 = 257 \enspace \mbox{чел.-дни}
 	\]
 	
+
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
