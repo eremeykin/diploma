@@ -472,7 +472,21 @@
 		T_\textup{\scriptsize{ТП}} = (89 + 64) \cdot 1,16 \cdot 1,45 = 257 \enspace \mbox{чел.-дни}
 	\]
 	
-
+	\subsection{Расчет трудоемкости выполнения рабочего проекта}
+	Трудоемкость разработки рабочего проекта зависит от функционального назначения программного продукта, количества разновидностей форм входной и выходной информации, сложности алгоритма функционирования, степени использования готовых программных модулей и уровня алгоритмического языка программирования и определяется по формуле:
+ 	\begin{equation}\label{eq:TRP}
+ 			T_\textup{\scriptsize{РП}} = K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}} \cdot K_\textup{\scriptsize{Я}} \cdot K_\textup{\scriptsize{З}} \cdot K_\textup{\scriptsize{ИА}}  (t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}})
+ 	\end{equation}
+ 	где $K_\textup{\scriptsize{К}} $~--~коэффициент учета сложности контроля информации; $K_\textup{\scriptsize{К}}=1,07$ в соответствии с таблицей 19 методических указаний \cite{metoda:Economy}.\newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; Ранее определено что $K_\textup{\scriptsize{Р}} = 1,45$. \newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{Я}} $~--~коэффициент учета уровня используемого языка программирования; $K_\textup{\scriptsize{Я}} = 1 $ для языка высокого уровня.\newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{З}} $~--~коэффициент учета степени использования готовых программных модулей; С учетом применения готового расчетного ядра МКЭ моделирования и большого количества стандартных библиотек $K_\textup{\scriptsize{З}} =0,6$. \newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{ИА}} $~--~коэффициент учета вида используемой информации и сложности алгоритма;\newline
+ 	Значение $K_\textup{\scriptsize{ИА}} $ вычисляется по формуле:
+ 	\begin{equation}\label{eq:KIA}
+ 	 	K_\textup{\scriptsize{ИА}} = \frac{	K^\prime_\textup{\scriptsize{П}} n_\textup{\scriptsize{П}} + 	K^\prime_\textup{\scriptsize{НС}} n_\textup{\scriptsize{НС}} +	K^\prime_\textup{\scriptsize{Б}} n_\textup{\scriptsize{Б}} }{n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
+ 	\end{equation}
+ 	
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
