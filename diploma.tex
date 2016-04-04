@@ -452,10 +452,10 @@
 	T_\textup{\scriptsize{ТП}} = (t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}})  K_{\textup{\scriptsize{В}}} \cdot K_{\textup{\scriptsize{Р}}}
 	\end{equation} 
 	где $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}}, 
-	\enspace t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого на разработку ТП разработчиком постановки задач и разработчиком программного обеспечения соответственно, \mbox{чел.-дни}; По таблице 16 в \cite{metoda:Economy} определено, что для принятой группы сложности алгоритма и степени новизны программной продукции нормы времени составляют $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}}=89 \enspace \mbox{чел.-дни}$ и  $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}=64 \enspace \mbox{чел.-дни}$ 
+	\enspace t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого на разработку ТП разработчиком постановки задач и разработчиком программного обеспечения соответственно, \mbox{чел.-дни}; по таблице 16 в \cite{metoda:Economy} определено, что для принятой группы сложности алгоритма и степени новизны программной продукции нормы времени составляют $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}}=89 \enspace \mbox{чел.-дни}$ и  $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}=64 \enspace \mbox{чел.-дни}$ 
 	\newline
 	\phantom{где\space}$K_\textup{\scriptsize{В}}$~--~коэффициент учета вида используемой информации;\newline
-	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; По таблице 17 приведенной в \cite{metoda:Economy} определено значение $K_\textup{\scriptsize{Р}} = 1,45$.\newline
+	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; по таблице 17 приведенной в \cite{metoda:Economy} определено значение $K_\textup{\scriptsize{Р}} = 1,45$.\newline
 	Значение коэффициента $K_\textup{\scriptsize{В}}$ определяют из выражения:
 	\begin{equation}\label{eq:KV}
 	K_\textup{\scriptsize{В}} = \frac{K_\textup{\scriptsize{П}} \cdot n_\textup{\scriptsize{П}} + K_\textup{\scriptsize{НС}} \cdot n_\textup{\scriptsize{НС}}+ K_\textup{\scriptsize{Б}} \cdot n_\textup{\scriptsize{Б}}}{n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
@@ -478,15 +478,35 @@
  			T_\textup{\scriptsize{РП}} = K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}} \cdot K_\textup{\scriptsize{Я}} \cdot K_\textup{\scriptsize{З}} \cdot K_\textup{\scriptsize{ИА}}  (t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}})
  	\end{equation}
  	где $K_\textup{\scriptsize{К}} $~--~коэффициент учета сложности контроля информации; $K_\textup{\scriptsize{К}}=1,07$ в соответствии с таблицей 19 методических указаний \cite{metoda:Economy}.\newline
- 	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; Ранее определено что $K_\textup{\scriptsize{Р}} = 1,45$. \newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; ранее определено что $K_\textup{\scriptsize{Р}} = 1,45$. \newline
  	\phantom{где\space}$K_\textup{\scriptsize{Я}} $~--~коэффициент учета уровня используемого языка программирования; $K_\textup{\scriptsize{Я}} = 1 $ для языка высокого уровня.\newline
- 	\phantom{где\space}$K_\textup{\scriptsize{З}} $~--~коэффициент учета степени использования готовых программных модулей; С учетом применения готового расчетного ядра МКЭ моделирования и большого количества стандартных библиотек $K_\textup{\scriptsize{З}} =0,6$. \newline
+ 	\phantom{где\space}$K_\textup{\scriptsize{З}} $~--~коэффициент учета степени использования готовых программных модулей; с учетом применения готового расчетного ядра МКЭ моделирования и большого количества стандартных библиотек $K_\textup{\scriptsize{З}} =0,6$. \newline
  	\phantom{где\space}$K_\textup{\scriptsize{ИА}} $~--~коэффициент учета вида используемой информации и сложности алгоритма;\newline
  	Значение $K_\textup{\scriptsize{ИА}} $ вычисляется по формуле:
  	\begin{equation}\label{eq:KIA}
  	 	K_\textup{\scriptsize{ИА}} = \frac{	K^\prime_\textup{\scriptsize{П}} n_\textup{\scriptsize{П}} + 	K^\prime_\textup{\scriptsize{НС}} n_\textup{\scriptsize{НС}} +	K^\prime_\textup{\scriptsize{Б}} n_\textup{\scriptsize{Б}} }{n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
  	\end{equation}
- 	
+ 	где $K^\prime_\textup{\scriptsize{П}}$, $K^\prime_\textup{\scriptsize{НС}}$, $	K^\prime_\textup{\scriptsize{Б}}$~--~значения коэффициентов учета сложности алгоритма программного продукта и вида используемой информации для переменной, нормативно-справочной информации и баз данных соответственно; согласно таблице 22 методических указаний \cite{metoda:Economy} для группы новизны <<Б>> и группы 1 сложности алгоритма $K^\prime_\textup{\scriptsize{П}}=1,62$, $K^\prime_\textup{\scriptsize{НС}}=0,97$, $	K^\prime_\textup{\scriptsize{Б}}=0,81$. \newline
+	\phantom{где\space}$t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}$~--~норма времени затраченного на разработку программы на языке высокого уровня разработчиком постановки задач и разработчиком программного обеспечения соответственно, чел.-дни; ранее определено что трудоемкость выполнения технического проекта для разработчика постановки задач	$t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}} =  89 \enspace \mbox{чел.-дни}$, тогда по таблице 35а $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}=107 \enspace \mbox{чел.-дни}$, а трудоемкость выполнения технического проекта разработчиком программного обеспечения $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}} = 64 \enspace \mbox{чел.-дни}$, следовательно $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}=683 \enspace \mbox{чел.-дни}$.
+	Подставим табличные значения в формулу (\ref{eq:KIA}):
+ 	\[
+ 	 	 	K_\textup{\scriptsize{ИА}} = \frac{1,62 \cdot 2 + 0,97 \cdot 1 +	0,81 \cdot 0 }{2+1+0}=1,40
+ 	 \]
+ 	 Тогда трудоемкость разработки рабочего проекта по формуле (\ref{eq:TRP}):
+ 	 \[
+ 	  			T_\textup{\scriptsize{РП}} = 1,07 \cdot 1,45 \cdot 1 \cdot 0,6 \cdot 1,40 (107 + 683)=735  \enspace \mbox{чел.-дни}
+ 	  \]
+ 	  
+	\subsection{Расчет трудоемкости стадии внедрения}
+	Трудоемкость выполнения стадии ``Внедрение'' $T_\textup{\scriptsize{В}}$ может быть расчитана по формуле 
+	\begin{equation}\label{eq:TV}
+	T_\textup{\scriptsize{В}} = (t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}) K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}}  \cdot K_\textup{\scriptsize{З}} 
+	\end{equation}
+	где $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого разработчиком постановки задачи и разработчиком программного обеспечения соответственно на выполнение процедур внедрения, чел.-дни; исходя из таблицы 48 $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}=33 \enspace  \mbox{чел.-дни}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}=98 \enspace  \mbox{чел.-дни}$. \newline
+	При подстановке норм времени и коэффициентов учета в формулу (\ref{eq:TV}) получаем:
+	\[
+		T_\textup{\scriptsize{В}} = (33 + 98) 1,07 \cdot 1,45  \cdot 0,6 = 122 \enspace  \mbox{чел.-дни}
+	\]
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
