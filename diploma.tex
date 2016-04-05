@@ -502,11 +502,44 @@
 	\begin{equation}\label{eq:TV}
 	T_\textup{\scriptsize{В}} = (t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}) K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}}  \cdot K_\textup{\scriptsize{З}} 
 	\end{equation}
-	где $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого разработчиком постановки задачи и разработчиком программного обеспечения соответственно на выполнение процедур внедрения, чел.-дни; исходя из таблицы 48 $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}=33 \enspace  \mbox{чел.-дни}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}=98 \enspace  \mbox{чел.-дни}$. \newline
+	где $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого разработчиком постановки задачи и разработчиком программного обеспечения соответственно на выполнение процедур внедрения, чел.-дни; исходя из таблицы 48 \mbox{$t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}=33 \enspace  \mbox{чел.-дни}$}, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}=98 \enspace  \mbox{чел.-дни}$. \newline
 	При подстановке норм времени и коэффициентов учета в формулу (\ref{eq:TV}) получаем:
 	\[
 		T_\textup{\scriptsize{В}} = (33 + 98) 1,07 \cdot 1,45  \cdot 0,6 = 122 \enspace  \mbox{чел.-дни}
 	\]
+
+	\subsection{Расчет суммарной трудоемкости и продолжительности работ}
+	Полученные на предыдущих этапах результаты могут быть сведены в таблицу \ref{tab:economyTrud}. Общая трудоемкость разработки программной продукции равна сумме величин трудоемкости выполнения отдельных стадий: $T_\textup{\scriptsize{ПП}} = T_\textup{\scriptsize{ТЗ}} +\\+ T_\textup{\scriptsize{ЭП}} + T_\textup{\scriptsize{ТП}} + T_\textup{\scriptsize{РП}} + T_\textup{\scriptsize{В}} = 67 + 94 +257 + 735 + 122 = 1293 \enspace \mbox{чел.-дни}$. 
+	
+	Для целей планирования и контроля используют ленточный график исходя из того что разработку осуществляет небольшой, стабильный по составу коллектив исполнителей. 
+	\begin{table}[htb]
+		\centering
+		\caption{Трудоемкости стадий}\label{tab:economyTrud} 
+		\begin{tabularx}{\textwidth}{|l|Z|}
+			\hline Стадия разработки & Трудоемкость, \mbox{чел.-дни} \\ 
+			\hline Техническое задание & 67 \\ 
+			\hline Эскизный проект & 94 \\ 
+			\hline Технический проект & 257 \\ 			
+			\hline Рабочий проект & 735 \\ 			
+			\hline Внедрение & 122 \\ 
+			\hline 
+		\end{tabularx}
+	\end{table}
+	Продолжительность выполнения всех работ по этапам разработки определяют из выражения:
+	\begin{equation}\label{eq:TI}
+	T_\textup{\scriptsize{i}} = \frac{\tau_\textup{\scriptsize{i}} + Q}{n_\textup{\scriptsize{i}}}
+	\end{equation}
+	где $\tau_\textup{\scriptsize{i}}$~--~трудоемкость $i\mbox{-й}$ работы, \mbox{чел.-дни};\newline
+	\phantom{где\space}$Q$~--~трудоемкость дополнительных работ, выполняемых исполнителем, \mbox{чел.-дни};\newline
+	\phantom{где\space}$n_\textup{\scriptsize{i}}$~--~количество исполнителей, выполняющих  $i\mbox{-ю}$ работу, чел.\newline
+	Для разрабатываемой интегрированной системы назначим одного исполнителя для разработки технического задания, двух -- для работ по внедрению продукта и выполнения эскизного проекта и трех исполнителей для разработки технического и рабочего проектов.  Тогда по формуле (\ref{{eq:TI}}) продолжительность разработки программного продукта 
+	
+	
+	
+	
+	
+	
+	
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
