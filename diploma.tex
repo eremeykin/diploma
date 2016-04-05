@@ -26,34 +26,12 @@
 
 \usepackage{subcaption}
 
- %\titleformat{\chapter}[display]
- %	{\normalfont\Large\centering}{\MakeUppercase{\chaptertitlename} \thechapter}{0pt}{\Large\MakeUppercase}
-
-
-
-%\makeatletter
-%\def\@makechapterhead#1{%
-%	\vspace*{50\p@}%
-%	{\parindent \z@ \raggedright \normalfont
-%		\interlinepenalty\@M
-%		\Large\bfseries  \thechapter.\quad #1\par\nobreak
-%		\vskip 40\p@
-%	}}
-%	\makeatother
-
 \titleformat{\chapter}[display]
 {\normalfont\centering\bfseries}
 {\MakeUppercase{\chaptertitlename} \thechapter}
 {0pt}
 {\MakeUppercase}
 []
-
- %\titleformat{\chapter}[display]
- %{\filcenter}
- %{\MakeUppercase{\chaptertitlename} \MakeUppercase{\thechapter}}
- %{8pt}
- %{\MakeUppercase}{}
- %{\bfseries}{}   
      
 \titleformat{\section}
 {\normalsize\bfseries}
@@ -517,7 +495,7 @@
 		\centering
 		\caption{Трудоемкости стадий}\label{tab:economyTrud} 
 		\begin{tabularx}{\textwidth}{|l|Z|Z|Z|}
-			\hline Стадия разработки & Трудоемкость, \mbox{чел.-дни} & Число исполнителей & Заработная плата исполн., руб \\ 
+			\hline Стадия разработки & Трудоемкость, \mbox{чел.-дни} & Число исполнителей & Зарплата исполн., руб \\ 
 			\hline Техническое задание & 67 & 1 & 40 000\\ 
 			\hline Эскизный проект & 94 & 2 &  42 000\\ 
 			\hline Технический проект & 257 & 3 & 40 000 \\ 			
@@ -555,6 +533,54 @@
 	\[
 			C_\textup{\scriptsize{ЗО}} = \frac{40000}{21} \cdot 67 + \frac{42000}{21} \cdot 94 +  \frac{40000}{21} \cdot 257 + \frac{40000}{21} \cdot 735 + \frac{38000}{21} \cdot 122 = 2311048\enspace\mbox{руб.}
 	\]
+	\subsection{Расчет дополнительной заработной платы}
+	Дополнительная заработная плата учитывает все выплаты непосредственным исполнителям за время (установленное законодательством), непроработанное на производстве, в том числе: оплата очередных отпусков, компенсауия за неиспользованный отпуск и др. Расчет ведется по формуле:
+	\[
+		C_\textup{\scriptsize{ЗД}} = C_\textup{\scriptsize{ЗО}} \cdot \alpha_\textup{\scriptsize{Д}}
+	\]
+	где $\alpha_\textup{\scriptsize{Д}}$~--~коэффициент отчислений на дополнительную зарплату $\alpha_\textup{\scriptsize{Д}}=0,2$.
+	\[
+		C_\textup{\scriptsize{ЗД}} =  2311048 \cdot 0,2 = 462210\enspace\mbox{руб.}
+	\]
+	\subsection{Отчисления на социальное страхование}
+	В статье учитываются отчисления в бюджет социального страхования по установленному законодательством тарифу от суммы основной и дополнительной заработной платы:
+	\[
+	C_\textup{\scriptsize{СС}} =  \alpha_\textup{\scriptsize{СС}} \cdot (	C_\textup{\scriptsize{ЗО}} + 	C_\textup{\scriptsize{ЗД}})
+	\]
+	где $\alpha_\textup{\scriptsize{СС}}$~--~коэффициент отчислений на социальное страхование; $\alpha_\textup{\scriptsize{СС}} = 0,3 +\\+ 0,002 = 0,302$.
+	\[
+	C_\textup{\scriptsize{СС}} =  0,302 \cdot (2311048+462210) = 263724\enspace\mbox{руб.}
+	\]
+	\subsection{Накладные расходы}
+	В статье учитываются затраты на общехозяйственные расходы, непроизвольные расходы и расходы на управление. Накладные расходы определяют в процентном отношении к основной заработной плате:
+	\[
+		C_\textup{\scriptsize{Н}} =  \alpha_\textup{\scriptsize{Н}} \cdot 	C_\textup{\scriptsize{ЗО}}
+	\]
+	где $\alpha_\textup{\scriptsize{Н}}$~--~коэффициент накладных расходов;  $\alpha_\textup{\scriptsize{Н}}=1,8$.
+	\[
+	C_\textup{\scriptsize{Н}} =  1,8 \cdot 2311048 = 4159886\enspace\mbox{руб.}
+	\]
+	\subsection{Расходы на оборудование}
+	В статье учитываются суммарные затраты на приобретение или проектирование необходимого оборудования. В случае использования оборудования для разработки нескольких программных продуктов, его стоимость распределяется между всеми продуктами пропорционально времени использования:
+	\[
+	C_\textup{\scriptsize{СО}} = \sum_{i}^{} \frac{  C_{\textup{\scriptsize{Б}}i} \cdot \alpha_i }{100 F_\textup{\scriptsize{Д}}}t_i
+	\]
+	где $ C_{\textup{\scriptsize{Б}}i}$~--~балансовая цена $i\mbox{-го}$ вида оборудования, руб.;\newline
+	\phantom{где\space}$\alpha_i$~--~норма годовых амортизационных отчислений для оборудования $i\mbox{-го}$ вида, \%;\newline
+	\phantom{где\space}$F_\textup{\scriptsize{Д}}$~--~действительный годовой фонд времени, ч; $F_\textup{\scriptsize{Д}} = 2080 \enspace \mbox{ч}$ при 8-ми часовом рабочем дне и 5-ти дневной рабочей недели;\newline
+	\phantom{где\space}$t_i$~--~время использования $i\mbox{-го}$ вида оборудования для выполнения данной разработки, ч.
+		
+	
+	\begin{table}[htb]
+		\centering
+		\caption{Специальное оборудование}\label{tab:economySpecOb} 
+		\begin{tabularx}{\textwidth}{|l|Z|Z|l|Z|Z|}
+			\hline \No & Наименование & Единица измерения & Кол-во & Цена за единицу, руб. & Сумма, руб.\\ 
+			\hline 1 & ПЭВМ & шт & \multicolumn{1}{|c|}{9} & 40000 & 360000\\
+			\hline 
+		\end{tabularx}
+	\end{table}
+	
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
@@ -605,15 +631,5 @@
 %	
 %	\section{Выбор программных средств}
 %		\subsection{Выбор системы моделирования}
-%		
-%	\renewcommand{\bibname}{\centerline{\large{Список литературы}}}
-%	\bibliographystyle{utf8gost705u} 
-%	\bibliography{biblio}
-%	\addcontentsline{toc}{chapter}{Список литературы} % добавляем пункт "Литература" в
-%	\nocite{Exp1}
-%	\nocite{OOP}
-%	\nocite{Java1}
-%	\nocite{Java2}
-%	\nocite{Exp2}
 	
 \end{document}
