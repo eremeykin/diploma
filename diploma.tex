@@ -12,6 +12,7 @@
 \usepackage[T2A]{fontenc} % Поддержка русских букв
 \usepackage{url}
 \usepackage{tabularx}
+\usepackage{amsmath}
 
 \newcolumntype{Z}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X} %новый тип столбца для таблицы
 
@@ -288,7 +289,7 @@
 	
 	В идеальном случае следует ориентироваться на независимость проектируемого приложения от индивидуальных особенностей какой-либо внешней системы. Это позволит расширить границы применения программы и облегчить задачу её освоения в рамках существующей информационной среды. Удовлетворить условиям концепции независимости поможет правильный выбор средств разработки а также определенные проектные меры, например, разработка межсистемного взаимодействия на основе соглашений (интерфейсов). 
 	
-	\chapter{Предпроектное исследование --- ПЕРЕИМЕНОВАТЬ?}
+	\chapter{Предпроектное исследование}
 	\section{Формулировка целей}
 	Основной целью разработки является снижение трудоемкости назначения рациональных режимов резания. Эта цель может быть представлена в виде трех подцелей более низкого уровня: 
 	\begin{enumerate}
@@ -405,9 +406,9 @@
 	\subsection{Расчет трудоемкости разработки технического задания}
 	Трудоемкость разработки технического задания может быть расчитана по формуле:
 	\begin{equation}\label{eq:TZ}
-		T_\textup{\scriptsize{ТЗ}} = T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РЗ}} + T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}},	
+		\tau_\textup{\scriptsize{ТЗ}} = T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РЗ}} + T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}},	
 	\end{equation} 
-	где	$T_\textup{\scriptsize{ТЗ}}$~--~трудоемкость разработки технического задания на создание программного продукта, \mbox{чел.-дни};\newline
+	где	$\tau_\textup{\scriptsize{ТЗ}}$~--~трудоемкость разработки технического задания на создание программного продукта, \mbox{чел.-дни};\newline
 	\phantom{где\space}$T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РЗ}}$~--~затраты времени разработчика постановки задачи на разработку ТЗ, \mbox{чел.-дни};\newline
 	\phantom{где\space}$T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}}$~--~затраты времени разработчика программного обеспечения на разработку ТЗ, \mbox{чел.-дни}.\newline
 	Значения величин $T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РЗ}}$ и $~ T^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}}$ расчитывают по формулам: 
@@ -419,16 +420,16 @@
 	\phantom{где\space}$K^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}}$~--~коэффициент, учитывающий удельный вес трудоемкости работ, выполняемых разработчиком программного обеспечения на стадии ТЗ; $K^{\textup{\scriptsize{З}}}_\textup{\scriptsize{РП}}=0,35$ для совместной с разработчиком постановки задачи.\newline
 	После подстановки принятых значений в (\ref{eq:TZ}) получаем:
 	\[
-	T_\textup{\scriptsize{ТЗ}} = 67 \cdot 0,65 + 67 \cdot 0,35 = 67 \enspace \mbox{чел.-дни}
+	\tau_\textup{\scriptsize{ТЗ}} = 67 \cdot 0,65 + 67 \cdot 0,35 = 67 \enspace \mbox{чел.-дни}
 	\]
 	
 	
 	\subsection{Расчет трудоемкости выполнения эскизного проекта}
 	Для расчета трудоемкости выполнения эскизного проекта (ЭП) используется формула:
 	\begin{equation}\label{eq:EP}
-	T_\textup{\scriptsize{ЭП}} = T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РЗ}} + T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РП}},	
+	\tau_\textup{\scriptsize{ЭП}} = T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РЗ}} + T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РП}},	
 	\end{equation} 
-	где	$T_\textup{\scriptsize{ЭП}}$~--~трудоемкость разработки эскизного проекта, \mbox{чел.-дни};\newline
+	где	$\tau_\textup{\scriptsize{ЭП}}$~--~трудоемкость разработки эскизного проекта, \mbox{чел.-дни};\newline
 	\phantom{где\space}$T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РЗ}}$~--~затраты времени разработчика постановки задачи на разработку ЭП, \mbox{чел.-дни};\newline
 	\phantom{где\space}$T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РП}}$~--~затраты времени разработчика программного обеспечения на разработку ЭП, \mbox{чел.-дни}.\newline
 	Для расчета значений $T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РЗ}}$ и $~ T^{\textup{\scriptsize{Э}}}_\textup{\scriptsize{РП}}$ могут быть применены следующие формулы:
@@ -441,18 +442,18 @@
 	
 	После подстановки принятых значений в (\ref{eq:EP}) получаем:
 	\[
-	T_\textup{\scriptsize{ТЗ}} = 94 \cdot 0,7 + 94 \cdot 0,3 = 94 \enspace \mbox{чел.-дни}
+	\tau_\textup{\scriptsize{ТЗ}} = 94 \cdot 0,7 + 94 \cdot 0,3 = 94 \enspace \mbox{чел.-дни}
 	\]
 	
 	
 	\subsection{Расчет трудоемкости выполнения технического проекта}
-	Трудоемкость разработки технического проекта $T_\textup{\scriptsize{ТП}}$ зависит от функционального назначения программного продукта, количества разновидностей форм входной и выходной информации и определяется по формуле:
+	Трудоемкость разработки технического проекта $\tau_\textup{\scriptsize{ТП}}$ зависит от функционального назначения программного продукта, количества разновидностей форм входной и выходной информации и определяется по формуле:
 	
 	\begin{equation}\label{eq:TP}
-	T_\textup{\scriptsize{ТП}} = (t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}})  K_{\textup{\scriptsize{В}}} \cdot K_{\textup{\scriptsize{Р}}}
+	\tau_\textup{\scriptsize{ТП}} = (t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РП}})  K_{\textup{\scriptsize{В}}} \cdot K_{\textup{\scriptsize{Р}}}
 	\end{equation} 
-	где $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}}, 
-	\enspace t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого на разработку ТП разработчиком постановки задач и разработчиком программного обеспечения соответственно, \mbox{чел.-дни}; по таблице 16 в \cite{metoda:Economy} определено, что для принятой группы сложности алгоритма и степени новизны программной продукции нормы времени составляют $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}}=89 \enspace \mbox{чел.-дни}$ и  $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}}=64 \enspace \mbox{чел.-дни}$ 
+	где $t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РЗ}}, 
+	\enspace t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого на разработку ТП разработчиком постановки задач и разработчиком программного обеспечения соответственно, \mbox{чел.-дни}; по таблице 16 в \cite{metoda:Economy} определено, что для принятой группы сложности алгоритма и степени новизны программной продукции нормы времени составляют $t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РЗ}}=89 \enspace \mbox{чел.-дни}$ и  $t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РП}}=64 \enspace \mbox{чел.-дни}$ 
 	\newline
 	\phantom{где\space}$K_\textup{\scriptsize{В}}$~--~коэффициент учета вида используемой информации;\newline
 	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; по таблице 17 приведенной в \cite{metoda:Economy} определено значение $K_\textup{\scriptsize{Р}} = 1,45$.\newline
@@ -469,13 +470,13 @@
 	\]
 	Для рассчитанного значения $K_\textup{\scriptsize{В}}$ по формуле (\ref{eq:TP}) получаем значение трудоемкости выполнения технического проекта:
 	\[
-		T_\textup{\scriptsize{ТП}} = (89 + 64) \cdot 1,16 \cdot 1,45 = 257 \enspace \mbox{чел.-дни}
+		\tau_\textup{\scriptsize{ТП}} = (89 + 64) \cdot 1,16 \cdot 1,45 = 257 \enspace \mbox{чел.-дни}
 	\]
 	
 	\subsection{Расчет трудоемкости выполнения рабочего проекта}
 	Трудоемкость разработки рабочего проекта зависит от функционального назначения программного продукта, количества разновидностей форм входной и выходной информации, сложности алгоритма функционирования, степени использования готовых программных модулей и уровня алгоритмического языка программирования и определяется по формуле:
  	\begin{equation}\label{eq:TRP}
- 			T_\textup{\scriptsize{РП}} = K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}} \cdot K_\textup{\scriptsize{Я}} \cdot K_\textup{\scriptsize{З}} \cdot K_\textup{\scriptsize{ИА}}  (t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}})
+ 			\tau_\textup{\scriptsize{РП}} = K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}} \cdot K_\textup{\scriptsize{Я}} \cdot K_\textup{\scriptsize{З}} \cdot K_\textup{\scriptsize{ИА}}  (t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}})
  	\end{equation}
  	где $K_\textup{\scriptsize{К}} $~--~коэффициент учета сложности контроля информации; $K_\textup{\scriptsize{К}}=1,07$ в соответствии с таблицей 19 методических указаний \cite{metoda:Economy}.\newline
  	\phantom{где\space}$K_\textup{\scriptsize{Р}}$~--~коэффициент учета режима обработки информации; ранее определено что $K_\textup{\scriptsize{Р}} = 1,45$. \newline
@@ -487,41 +488,41 @@
  	 	K_\textup{\scriptsize{ИА}} = \frac{	K^\prime_\textup{\scriptsize{П}} n_\textup{\scriptsize{П}} + 	K^\prime_\textup{\scriptsize{НС}} n_\textup{\scriptsize{НС}} +	K^\prime_\textup{\scriptsize{Б}} n_\textup{\scriptsize{Б}} }{n_\textup{\scriptsize{П}} + n_\textup{\scriptsize{НС}} + n_\textup{\scriptsize{Б}}}
  	\end{equation}
  	где $K^\prime_\textup{\scriptsize{П}}$, $K^\prime_\textup{\scriptsize{НС}}$, $	K^\prime_\textup{\scriptsize{Б}}$~--~значения коэффициентов учета сложности алгоритма программного продукта и вида используемой информации для переменной, нормативно-справочной информации и баз данных соответственно; согласно таблице 22 методических указаний \cite{metoda:Economy} для группы новизны <<Б>> и группы 1 сложности алгоритма $K^\prime_\textup{\scriptsize{П}}=1,62$, $K^\prime_\textup{\scriptsize{НС}}=0,97$, $	K^\prime_\textup{\scriptsize{Б}}=0,81$. \newline
-	\phantom{где\space}$t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}$~--~норма времени затраченного на разработку программы на языке высокого уровня разработчиком постановки задач и разработчиком программного обеспечения соответственно, чел.-дни; ранее определено что трудоемкость выполнения технического проекта для разработчика постановки задач	$t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РЗ}} =  89 \enspace \mbox{чел.-дни}$, тогда по таблице 35а $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}=107 \enspace \mbox{чел.-дни}$, а трудоемкость выполнения технического проекта разработчиком программного обеспечения $t^{\textup{\scriptsize{T}}}_\textup{\scriptsize{РП}} = 64 \enspace \mbox{чел.-дни}$, следовательно $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}=683 \enspace \mbox{чел.-дни}$.
+	\phantom{где\space}$t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}$~--~норма времени затраченного на разработку программы на языке высокого уровня разработчиком постановки задач и разработчиком программного обеспечения соответственно, чел.-дни; ранее определено что трудоемкость выполнения технического проекта для разработчика постановки задач	$t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РЗ}} =  89 \enspace \mbox{чел.-дни}$, тогда по таблице 35а $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РЗ}}=107 \enspace \mbox{чел.-дни}$, а трудоемкость выполнения технического проекта разработчиком программного обеспечения $t^{\textup{\scriptsize{Т}}}_\textup{\scriptsize{РП}} = 64 \enspace \mbox{чел.-дни}$, следовательно $t^{\textup{\scriptsize{Р}}}_\textup{\scriptsize{РП}}=683 \enspace \mbox{чел.-дни}$.
 	Подставим табличные значения в формулу (\ref{eq:KIA}):
  	\[
  	 	 	K_\textup{\scriptsize{ИА}} = \frac{1,62 \cdot 2 + 0,97 \cdot 1 +	0,81 \cdot 0 }{2+1+0}=1,40
  	 \]
  	 Тогда трудоемкость разработки рабочего проекта по формуле (\ref{eq:TRP}):
  	 \[
- 	  			T_\textup{\scriptsize{РП}} = 1,07 \cdot 1,45 \cdot 1 \cdot 0,6 \cdot 1,40 (107 + 683)=735  \enspace \mbox{чел.-дни}
+ 	  			\tau_\textup{\scriptsize{РП}} = 1,07 \cdot 1,45 \cdot 1 \cdot 0,6 \cdot 1,40 (107 + 683)=735  \enspace \mbox{чел.-дни}
  	  \]
  	  
 	\subsection{Расчет трудоемкости стадии внедрения}
-	Трудоемкость выполнения стадии ``Внедрение'' $T_\textup{\scriptsize{В}}$ может быть расчитана по формуле 
+	Трудоемкость выполнения стадии ``Внедрение'' $\tau_\textup{\scriptsize{В}}$ может быть расчитана по формуле 
 	\begin{equation}\label{eq:TV}
-	T_\textup{\scriptsize{В}} = (t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}) K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}}  \cdot K_\textup{\scriptsize{З}} 
+	\tau_\textup{\scriptsize{В}} = (t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}} + t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}) K_\textup{\scriptsize{К}} \cdot K_\textup{\scriptsize{Р}}  \cdot K_\textup{\scriptsize{З}} 
 	\end{equation}
 	где $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}$, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}$~--~норма времени, затрачиваемого разработчиком постановки задачи и разработчиком программного обеспечения соответственно на выполнение процедур внедрения, чел.-дни; исходя из таблицы 48 \mbox{$t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РЗ}}=33 \enspace  \mbox{чел.-дни}$}, $t^{\textup{\scriptsize{В}}}_\textup{\scriptsize{РП}}=98 \enspace  \mbox{чел.-дни}$. \newline
 	При подстановке норм времени и коэффициентов учета в формулу (\ref{eq:TV}) получаем:
 	\[
-		T_\textup{\scriptsize{В}} = (33 + 98) 1,07 \cdot 1,45  \cdot 0,6 = 122 \enspace  \mbox{чел.-дни}
+		\tau_\textup{\scriptsize{В}} = (33 + 98) 1,07 \cdot 1,45  \cdot 0,6 = 122 \enspace  \mbox{чел.-дни}
 	\]
 
 	\subsection{Расчет суммарной трудоемкости и продолжительности работ}
-	Полученные на предыдущих этапах результаты могут быть сведены в таблицу \ref{tab:economyTrud}. Общая трудоемкость разработки программной продукции равна сумме величин трудоемкости выполнения отдельных стадий: $T_\textup{\scriptsize{ПП}} = T_\textup{\scriptsize{ТЗ}} +\\+ T_\textup{\scriptsize{ЭП}} + T_\textup{\scriptsize{ТП}} + T_\textup{\scriptsize{РП}} + T_\textup{\scriptsize{В}} = 67 + 94 +257 + 735 + 122 = 1293 \enspace \mbox{чел.-дни}$. 
+	Полученные на предыдущих этапах результаты могут быть сведены в таблицу \ref{tab:economyTrud}. Общая трудоемкость разработки программной продукции равна сумме величин трудоемкости выполнения отдельных стадий: $\tau_\textup{\scriptsize{ПП}} = \tau_\textup{\scriptsize{ТЗ}} +\\+ \tau_\textup{\scriptsize{ЭП}} + \tau_\textup{\scriptsize{ТП}} + \tau_\textup{\scriptsize{РП}} + \tau_\textup{\scriptsize{В}} = 67 + 94 +257 + 735 + 122 = 1293 \enspace \mbox{чел.-дни}$. 
 	
 	Для целей планирования и контроля используют ленточный график исходя из того что разработку осуществляет небольшой, стабильный по составу коллектив исполнителей. 
 	\begin{table}[htb]
 		\centering
 		\caption{Трудоемкости стадий}\label{tab:economyTrud} 
-		\begin{tabularx}{\textwidth}{|l|Z|}
-			\hline Стадия разработки & Трудоемкость, \mbox{чел.-дни} \\ 
-			\hline Техническое задание & 67 \\ 
-			\hline Эскизный проект & 94 \\ 
-			\hline Технический проект & 257 \\ 			
-			\hline Рабочий проект & 735 \\ 			
-			\hline Внедрение & 122 \\ 
+		\begin{tabularx}{\textwidth}{|l|Z|Z|Z|}
+			\hline Стадия разработки & Трудоемкость, \mbox{чел.-дни} & Число исполнителей & Заработная плата исполн., руб \\ 
+			\hline Техническое задание & 67 & 1 & 40 000\\ 
+			\hline Эскизный проект & 94 & 2 &  42 000\\ 
+			\hline Технический проект & 257 & 3 & 40 000 \\ 			
+			\hline Рабочий проект & 735 & 3 & 40 000\\ 			
+			\hline Внедрение & 122 & 2 & 38 000\\ 
 			\hline 
 		\end{tabularx}
 	\end{table}
@@ -532,14 +533,28 @@
 	где $\tau_\textup{\scriptsize{i}}$~--~трудоемкость $i\mbox{-й}$ работы, \mbox{чел.-дни};\newline
 	\phantom{где\space}$Q$~--~трудоемкость дополнительных работ, выполняемых исполнителем, \mbox{чел.-дни};\newline
 	\phantom{где\space}$n_\textup{\scriptsize{i}}$~--~количество исполнителей, выполняющих  $i\mbox{-ю}$ работу, чел.\newline
-	Для разрабатываемой интегрированной системы назначим одного исполнителя для разработки технического задания, двух -- для работ по внедрению продукта и выполнения эскизного проекта и трех исполнителей для разработки технического и рабочего проектов.  Тогда по формуле (\ref{{eq:TI}}) продолжительность разработки программного продукта 
+	Для разрабатываемой интегрированной системы назначим одного исполнителя для подготовки технического задания, двух -- для работ по внедрению продукта и выполнения эскизного проекта и трех исполнителей для разработки технического и рабочего проектов.  Тогда по формуле (\ref{eq:TI}) продолжительность разработки программного продукта:
+	\jot = 15pt
+	 \begin{eqnarray}
+		\begin{aligned}
+			& T_\textup{\scriptsize{ТЗ}} = \frac{67}{1} = 67 \enspace \mbox{дни};   & T_\textup{\scriptsize{ЭП}} = \frac{94}{2} = 47 \enspace \mbox{дни}; & \quad 	 T_\textup{\scriptsize{ТП}} = \frac{257}{3} = 86 \enspace \mbox{дни}; \nonumber \\ & T_\textup{\scriptsize{РП}} = \frac{735}{3} = 245 \enspace \mbox{дни};  & T_\textup{\scriptsize{В}} = \frac{122}{2} = 61 \enspace \mbox{дни}; & \quad T_{\scriptsize{\Sigma}} = 506 \enspace \mbox{дни};\nonumber
+		\end{aligned} 
+	\end{eqnarray}
+
 	
-	
-	
-	
-	
-	
-	
+	\section{Определение затрат на разработку программной продукции} 
+	Затраты на разработку программной продукции могут быть представлены в виде суммы основных статей расходов, таких как материалы, специальное оборудование, основная заработная плата, дополнительная заработная плата, отчисления на социальное страхование, накладные расходы.
+	\subsection{Расчет основной заработной платы}
+	В основную заработную плату включается заработная плата всех исполнителей, непосредственно занятых разработкой программного продукта, с учетом их должностного оклада и времени участия в разработке. Расчет ведется по формуле:
+	\begin{equation}\label{eq:ZO}
+		C_\textup{\scriptsize{ЗО}} = \sum_{i}^{}\frac{\textup{З}_{\scriptsize{i}}}{d}\tau_{\scriptsize{i}}
+	\end{equation}
+	где $\textup{З}_{\scriptsize{i}}$~--~среднемесячный оклад $i\mbox{-го}$ исполнителя, руб.\newline
+	\phantom{где\space}$d$~--~среднее количество рабочих дней в месяце;\newline
+	\phantom{где\space}$\tau_{\scriptsize{i}}$~--~трудоемкость работ, выполняемых $i\mbox{-м}$ исполнителем, чел.-дни.
+	\[
+			C_\textup{\scriptsize{ЗО}} = \frac{40000}{21} \cdot 67 + \frac{42000}{21} \cdot 94 +  \frac{40000}{21} \cdot 257 + \frac{40000}{21} \cdot 735 + \frac{38000}{21} \cdot 122 = 2311048\enspace\mbox{руб.}
+	\]
  %\begin{enumerate}
 %		\item Эскизный проект
 %		\item Технический проект
