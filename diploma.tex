@@ -13,6 +13,8 @@
 \usepackage{url}
 \usepackage{tabularx}
 \usepackage{amsmath}
+\usepackage{pdfpages}
+\usepackage{tikz}
 
 \newcolumntype{Z}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X} %новый тип столбца для таблицы
 
@@ -49,11 +51,11 @@
 \titlespacing*{\subsection}{\parindent}{*2}{*2}
     
 % всавка изображений
-\ifx\pdfoutput\undefined
-\usepackage{graphicx}
-\else
-\usepackage[pdftex]{graphicx}
-\fi
+%\ifx\pdfoutput\undefined
+%\usepackage{graphicx}
+%\else
+%\usepackage[pdftex]{graphicx}
+%\fi
 % сквозная нумерация
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
@@ -91,28 +93,22 @@
 
 \begin{document}
 	
-	\begin{titlepage}
-		\begin{center}			
-		
-			{\small \textsc{ТИТУЛЬНЫЙ ВРЕМЕННЫЙ (ЧТОБ НЕ ЗАБЫТЬ НАЗВАНИЕ)}\\[5mm]}			
-			{\Huge\textsc{Диплом}\\[5mm]}
-			{\LARGE Интегрированная система поддержки принятия решения о выборе
-				режимов механической обработки тонкостенных деталей}
-			\bigskip
-			
-		\end{center}
-		\vfill
-		\begin{flushright}
-		Еремейкин Пётр Александрович
-		\vfill
-		\end{flushright}
-
-
-				
-		\begin{center}
-			Москва, 2016 г.
-		\end{center}
-	\end{titlepage}
+	\setboolean{@twoside}{false}
+	\includepdf[pages=-,offset=73 -75,pagecommand={
+		\clearpage
+		\thispagestyle{empty}
+		\begin{tikzpicture}[remember picture, overlay]
+			\node at (9, -4.9) {Робототехника и комплексная автоматизация};
+			\node at (9, -5.8) {Компьютерные системы автоматизации производства};
+			\node at (9, -11.45) {Интегрированная система поддержки принятия решения о выборе};
+			\node at (9, -12.3) {режимов механической обработки тонкостенных деталей};
+			\node at (15.2, -14.45) {П.А. Еремейкин};
+			\node at (15.2, -16.25) {А.Д. Жаргалова};
+			\node at (15.2, -21.58) {Л.А. Силаева};
+			\node at (15.2, -22.88) {А.С. Козодаев};
+			\node at (8.37, -25.2) {\small{16}};
+		\end{tikzpicture}}]{titul.pdf}
+ 
 	
 	\renewcommand*\contentsname{\hfill Содержание \hfill}
 	\tableofcontents
