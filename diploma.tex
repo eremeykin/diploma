@@ -33,6 +33,8 @@
 \usepackage{lastpage}
 \usepackage{textpos}
 \usepackage{tabu}
+\usepackage{textcomp}
+\usepackage{gensymb}
 %определенные страницы
 %\outputonly{97-102}
 %\usepackage{ltablex}  
@@ -1238,6 +1240,102 @@
 		}
 	}\end{table}
 	
+	Для проверки правильности загрузки дерева параметров составлена пробная модель по схеме на рисунке \ref{fig:model-tree-abstract}. Как видно из рисунка \ref{fig:loader-tree-test}, произвольное дерево параметров загружается в систему в соответствии с записанной в файл структурой.
+	
+	\begin{figure}[!h]
+		\begin{center}
+			\includegraphics[width=\textwidth]{img/loader-tree-test} 
+		\end{center}
+		\caption{Испытание загрузки дерева параметров}
+		\label{fig:loader-tree-test}
+	\end{figure}
+	
+	\section{Испытание подсистемы параметризации}
+	\subsection{Методика испытания}
+	Под системой параметризации понимается функционал разработанного ПО, отвечающий за применение действительных значений параметров к модели. Контролю подлежат прежде всего геометрические параметры, такие как длина заготовки, наружний и внешние диаметры. Для контролируемых параметров выставляют несколько различных значений и проверяют правильность изменения 3D модели. Например, при увеличении длины заготовки в редакторе параметров, соответствующее изменение должно быть отображено в модуле визуализации после обновления модели. 
+	
+	\begin{table}[]
+		\centering
+		\caption{Испытание подсистемы параметризации}
+		\label{tab:param-tests}{
+			\scalebox{0.9}{
+				{\tabulinesep=1.2mm
+					\begin{tabu}[]{|c|c|}
+						\hline
+						$ l = 0,02 $ & $ l = 0,06 $ \\
+						\hline
+						\includegraphics[scale=0.55]{img/length-test1} & \includegraphics[scale=0.55]{img/length-test2}  \\ 
+						\hline
+						$ l = 0,12 $ & $ d_\textup{внутр} = 0,0295 $ \\
+						\hline
+						\includegraphics[scale=0.55]{img/length-test3} & \includegraphics[scale=0.55]{img/diam-test1}  \\ 
+						\hline
+						$  d_\textup{внутр} = 0,025 $ & $ d_\textup{внутр} = 0,020 $ \\
+						\hline
+						\includegraphics[scale=0.55]{img/diam-test2} & \includegraphics[scale=0.55]{img/diam-test3}  \\ 
+						\hline
+					\end{tabu}
+				}
+			}
+		}\end{table}	
+	
+	\subsection{Проведение испытаний}	
+	В таблице \ref{tab:param-tests} приведены результаты испытаний для трех, выбранных произвольно, значений длины заготовки $ l=0,02;\:0,06;\:0,12 \textup{ м} $ и внутреннего диаметра $ d_\textup{внутр}=0,0295;\:0,025;\:0,020 \textup{ м} $. Все приведенные параметры модели применяются корректно, происходит обновление изображения заготовки в окне визуализации, следовательно подсистема параметризации реализована правильно.
+	
+	\section{Испытание подсистемы моделирования}
+	\subsection{Методика испытания}
+	При испытаниях подсистемы моделирования необходимо проконтролировать следующие положения:
+	\begin{itemize}
+		\item Зависимость результата моделирования от величины силы резания и её положения
+		\item Зависимость картины деформации от числа кулачков
+		\item Зависимость величины узловых перемещений от смещения кулачков
+		\item Изменение графиков узловых перемещений в зависимости параметров модели
+		\item Изменение графиков узловых перемещений в зависимости от положения контрольной плоскости
+		\item Возможность моделирования произвольного расчетного случая
+	\end{itemize}
+	
+	Указанные положения проверяются соответствующими изменениями параметров модели по нескольким произвольным значениям. 
+	
+		\begin{table}[]
+			\centering
+			\caption{Испытание подсистемы моделирования: сила резания}
+			\label{tab:modeling-tests}{
+					{\tabulinesep=1.2mm
+						\begin{tabu}[]{|c|c|}
+							\hline
+							\multicolumn{2}{|c|}{$ F_\textup{рез}=0 \textup{ Н,} \: \varphi=180 \degree  $} \\ \hline
+							\includegraphics[scale=0.55]{img/simulation-force-test-model1} & \includegraphics[scale=0.55]{img/simulation-force-test-graph1}  \\ 
+							\hline
+							\multicolumn{2}{|c|}{$ F_\textup{рез}=400 \textup{ Н,} \: \varphi=180 \degree  $} \\ \hline
+							\includegraphics[scale=0.55]{img/simulation-force-test-model2} & \includegraphics[scale=0.55]{img/simulation-force-test-graph2}  \\ 
+							\hline
+							\multicolumn{2}{|c|}{$ F_\textup{рез}=600 \textup{ Н,} \: \varphi=157,5 \degree  $} \\ \hline
+							\includegraphics[scale=0.55]{img/simulation-force-test-model3} & \includegraphics[scale=0.55]{img/simulation-force-test-graph3}  \\ 
+							\hline
+						\end{tabu}
+					}
+			}\end{table}
+	\newpage
+	\subsection{Проведение испытаний}	
+	При испытании зависимости результата моделирования от величины силы резания и её положения 
+
+		\begin{table}[]
+			\centering
+			\caption{Испытание подсистемы моделирования: число кулачков}
+			\label{tab:modeling-tests}{
+				{\tabulinesep=1.2mm
+					\begin{tabu}[]{|c|c|}
+						\hline
+						\multicolumn{2}{|c|}{$ n_\textup{кулачков}=4 $} \\ \hline
+						\includegraphics[scale=0.55]{img/simulation-jaw-test-model1} & \includegraphics[scale=0.55]{img/simulation-jaw-test-graph1}  \\ 
+						\hline
+						\multicolumn{2}{|c|}{$ n_\textup{кулачков}=6 $} \\ \hline
+						\includegraphics[scale=0.55]{img/simulation-jaw-test-model2} & \includegraphics[scale=0.55]{img/simulation-jaw-test-graph2}  \\ 
+						\hline
+					\end{tabu}
+				}
+			}\end{table}
+
 	\chapter{Расчет затрат на разработку интегрированной системы поддержки принятия решения}
 	\section{Введение}
 	В данной главе сформулированы этапы разработки, произведен рассчет трудоемкости, установлен состав исполнителей, определена продолжительность выполнения отдельных этапов и вычислены затраты на создание системы поддержки принятия решения.	
