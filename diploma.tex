@@ -35,6 +35,7 @@
 \usepackage{tabu}
 \usepackage{textcomp}
 \usepackage{gensymb}
+\usepackage[toc]{appendix}
 %определенные страницы
 %\outputonly{97-102}
 %\usepackage{ltablex}  
@@ -121,6 +122,19 @@
 \captionsetup{figurewithin=none, tablewithin=none} %сквозная нумерация таблиц
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
+% Чтоб t! работал как надо (рисунок вверху стр)
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+% Для приложений
+\renewcommand{\appendixtocname}{Приложения}
+\renewcommand{\appendixpagename}{Приложения}
+\makeatletter
+\g@addto@macro\appendices{\renewcommand{\thechapter}{\Asbuk{chapter}}}
+\makeatother
+
+
 \linespread{1.3}
 \usepackage[toc]{appendix}
     \renewcommand\appendixname{Приложение}
@@ -205,7 +219,7 @@
  			\textbf{АННОТАЦИЯ}
  		\end{center}
  		
-	Расчетно-пояснительная записка к дипломному проекту «Интегрированная система поддержки принятия решения о выборе режимов механической обработки тонкостенных деталей» содержит \pageref{LastPage} страниц машинописного текста, \totalfigures\ рисунков, \totaltables\ таблиц,  	\total{citnum}\ источников, 1 приложение.
+	Расчетно-пояснительная записка к дипломному проекту «Интегрированная система поддержки принятия решения о выборе режимов механической обработки тонкостенных деталей» содержит \pageref{LastPage} страниц машинописного текста, \totalfigures\ рисунков, \totaltables\ таблиц,  	\total{citnum}\ источников, 2 приложения.
 	
 	В расчетно-пояснительной записке описаны предпосылки создания системы, подробно рассмотрены этапы проектирования. Также уделено внимание техническим средствам разработки: системам управления базами данных, языкам программирования, программным платформам и библиотекам. Организационно-экономическая часть записки посвящена определению затрат на разработку интегрированной системы поддержки принятия решения. Кроме того, рассмотрены вопросы охраны труда пользователя системы: определены вредные и опасные факторы, способы снижения их воздействия, а также расчитана система защитного заземления. В экологической части расчетно-пояснительной записки описаны способы утилизации печатных плат.
 
@@ -1296,29 +1310,11 @@
 	
 	Указанные положения проверяются соответствующими изменениями параметров модели по нескольким произвольным значениям. 
 	
-		\begin{table}[]
-			\centering
-			\caption{Испытание подсистемы моделирования: сила резания}
-			\label{tab:modeling-tests}{
-					{\tabulinesep=1.2mm
-						\begin{tabu}[]{|c|c|}
-							\hline
-							\multicolumn{2}{|c|}{$ F_\textup{рез}=0 \textup{ Н,} \: \varphi=180 \degree  $} \\ \hline
-							\includegraphics[scale=0.55]{img/simulation-force-test-model1} & \includegraphics[scale=0.55]{img/simulation-force-test-graph1}  \\ 
-							\hline
-							\multicolumn{2}{|c|}{$ F_\textup{рез}=400 \textup{ Н,} \: \varphi=180 \degree  $} \\ \hline
-							\includegraphics[scale=0.55]{img/simulation-force-test-model2} & \includegraphics[scale=0.55]{img/simulation-force-test-graph2}  \\ 
-							\hline
-							\multicolumn{2}{|c|}{$ F_\textup{рез}=600 \textup{ Н,} \: \varphi=157,5 \degree  $} \\ \hline
-							\includegraphics[scale=0.55]{img/simulation-force-test-model3} & \includegraphics[scale=0.55]{img/simulation-force-test-graph3}  \\ 
-							\hline
-						\end{tabu}
-					}
-			}\end{table}
+
 	\newpage
 	\subsection{Проведение испытаний}	
-	При испытании зависимости результата моделирования от величины силы резания и её положения 
-
+	В таблице 10 продемонстрирована возможность изменять количество кулачков. Соответствующие графики отображают изменения числа кулачков. Результаты испытаний для остальных контролируемых положений приведены в приложении \ref{app:testing}. Например, в таблице \ref{tab:displ-tests} показано изменение величины узловых перемещений при увеличении смещения кулачков. Результаты работы программы подтверждают ожидания: в этом случае узловые перемещения увеличиваются. Таблица \ref{tab:modeling-force-tests} демонстрирует проверку различных значений силы резания и угла точки приложения. 
+	
 		\begin{table}[]
 			\centering
 			\caption{Испытание подсистемы моделирования: число кулачков}
@@ -1335,6 +1331,7 @@
 					\end{tabu}
 				}
 			}\end{table}
+
 
 	\chapter{Расчет затрат на разработку интегрированной системы поддержки принятия решения}
 	\section{Введение}
@@ -1895,11 +1892,15 @@
 
 
 	\edef\tabcount{\thetable}
+	\edef\figcount{\thefigure}
 
 	% reset table counter for appendix
 	\setcounter{table}{0}
-	\renewcommand{\thetable}{A\arabic{table}}
-		
+	\renewcommand{\thetable}{\Asbuk{chapter}\arabic{table}}
+	
+	% reset figure counter for appendix	
+	\setcounter{figure}{0}
+	\renewcommand{\thefigure}{\Asbuk{chapter}\arabic{figure}}
 
 	\begin{appendices}
 		\chapter{Таблицы коэффициентов} \label{app:tables}
@@ -2040,9 +2041,81 @@
 			\begin{tabular}[c]{@{}l@{}}Нарезание резьбы \\ резцом\end{tabular}      & Твердый сплав                                                        & 103 & 1,0 & 1,8 & 0,8 \\ \hline
 		\end{tabularx}
 	\end{table}			
-			 
+	
+		 
+	\chapter{Результаты испытаний} \label{app:testing}
+
+	\setcounter{table}{0}		
+	
+	\begin{table}[h!]
+		\centering
+		\caption{Испытание подсистемы моделирования: смещение кулачков}
+		\label{tab:displ-tests}{
+			{\tabulinesep=1.2mm
+				\begin{tabu}[]{|c|c|}
+					\hline
+					$ \delta = 0 $ & 	$ \delta = 0,0005 $ \\ \hline
+					\includegraphics[scale=0.55]{img/simulation-displ-test-graph0} & \includegraphics[scale=0.55]{img/simulation-displ-test-graph3}  \\ 
+					\hline
+					$ \delta = 0,001 $ & 	$ \delta = 0,002 $ \\ \hline
+					\includegraphics[scale=0.55]{img/simulation-displ-test-graph1} & \includegraphics[scale=0.55]{img/simulation-displ-test-graph2} \\ 
+					\hline
+				\end{tabu}
+			}
+	}\end{table}	 
+	
+	\begin{table}[]
+		\centering
+		\caption{Испытание подсистемы моделирования: сила резания}
+		\label{tab:modeling-force-tests}{
+			{\tabulinesep=1.2mm
+				\begin{tabu}[]{|c|c|}
+					\hline
+					\multicolumn{2}{|c|}{$ F_\textup{рез}=0 \textup{ Н}  $} \\ \hline
+					\includegraphics[scale=0.55]{img/simulation-force-test-model1} & \includegraphics[scale=0.55]{img/simulation-force-test-graph1}  \\ 
+					\hline
+					\multicolumn{2}{|c|}{$ F_\textup{рез}=400 \textup{ Н,} \: \varphi=180 \degree  $} \\ \hline
+					\includegraphics[scale=0.55]{img/simulation-force-test-model2} & \includegraphics[scale=0.55]{img/simulation-force-test-graph2}  \\ 
+					\hline
+					\multicolumn{2}{|c|}{$ F_\textup{рез}=600 \textup{ Н,} \: \varphi=157,5 \degree  $} \\ \hline
+					\includegraphics[scale=0.55]{img/simulation-force-test-model3} & \includegraphics[scale=0.55]{img/simulation-force-test-graph3}  \\ 
+					\hline
+				\end{tabu}
+			}
+	}\end{table}
+
+	\begin{table}[]
+		\centering
+		\caption{Испытание подсистемы моделирования: положение плоскости}
+		\label{tab:modeling-plane-tests}{
+			{\tabulinesep=1.2mm
+				\begin{tabu}[]{|c|c|}
+					\hline
+					\multicolumn{2}{|c|}{$ p=1 $} \\ \hline
+					\includegraphics[scale=0.55]{img/plane-position-test1} & \includegraphics[scale=0.55]{img/plane-position-test1-model}  \\ 
+					\hline
+					\multicolumn{2}{|c|}{$ p=0,8 $} \\ \hline
+					\includegraphics[scale=0.55]{img/plane-position-test2} & \includegraphics[scale=0.55]{img/plane-position-test2-model}  \\ 
+					\hline
+					\multicolumn{2}{|c|}{$ p=0,6 $} \\ \hline
+					\includegraphics[scale=0.55]{img/plane-position-test3} & \includegraphics[scale=0.55]{img/plane-position-test3-model}  \\ 
+					\hline
+				\end{tabu}
+			}
+	}\end{table}
+	
+	\begin{figure}[t!]
+		\begin{center}
+			\includegraphics[scale=0.8]{img/arbitrary-model-test} 
+		\end{center}
+		\caption{Расчет произвольной модели}
+		\label{fig:arbitrary-mode}
+	\end{figure}
+
 	\end{appendices}
-	%restore actual value of tab count
+	
+	%restore actual value of tab & figure count (without appendix to make totalcount work)
+	\setcounter{figure}{\figcount}		
 	\setcounter{table}{\tabcount}
 
 \end{document}
