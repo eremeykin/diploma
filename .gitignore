@@ -6,6 +6,7 @@
 *.bbl
 *.blg
 *.bat
+*.out
 *.py
 *.lnk
 diff.pdf

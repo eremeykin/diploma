@@ -1,15 +1,17 @@
-% %\documentclass[oneside,final,14pt]{article}
 \documentclass[14pt,oneside,final]{extreport}
 \usepackage[utf8]{inputenc} 
 \usepackage[english,russian]{babel}
 
+\setlength\parindent{1.25cm} % Красная строка 1.25 см
+\linespread{1.3} 			 % Мехстрочный интервал 1.5
+
 \usepackage{vmargin}
-\setpapersize{A4}
-\setmarginsrb{20mm}{20mm}{20mm}{20mm}{0pt}{0mm}{0pt}{13mm}
+\setpapersize{A4} % Размер страницы A4
+\setmarginsrb{30mm}{20mm}{10mm }{20mm  }{0pt       }{0mm    }{0pt       }{13mm    }
+%            {left}{top }{right}{bottom}{headheight}{headsep}{footheight}{footskip}
 \usepackage{indentfirst}
-\usepackage{pscyr} % Нормальные шрифты
-\DeclareUnicodeCharacter{00A0}{~}
-\usepackage[T2A]{fontenc} % Поддержка русских букв
+\usepackage{pscyr}			 % Нормальные шрифты
+\usepackage[T2A]{fontenc}	 % Поддержка русских букв
 \usepackage{url}
 \usepackage{float}
 \usepackage{tabularx}
@@ -29,7 +31,7 @@
 \usepackage{lstautogobble}
 \usepackage{placeins}
 \usepackage{selectp}
-\usepackage[figure,table,citenum]{totalcount}
+\usepackage[figure,table]{totalcount}
 \usepackage{lastpage}
 \usepackage{textpos}
 \usepackage{tabu}
@@ -38,16 +40,9 @@
 \usepackage[toc]{appendix}
 \usepackage{wrapfig}
 \usepackage{afterpage}
-%определенные страницы
-%\outputonly{97-102}
-%\usepackage{ltablex}  
-
- %\usepackage{courier}
- %\lstset{basicstyle=\ttfamily,breaklines=true}
- %\lstset{framextopmargin=50pt}
 \usepackage{totcount}
-\newtotcounter{citenum}
-
+ %\usepackage{titlesec}
+\usepackage{titlesec}
 
 %Установка листингов
 \lstset{basicstyle=\ttfamily,
@@ -58,54 +53,58 @@
 	frame=tb,
 	autogobble}
 
-\lstdefinestyle{nonumbers}
-{numbers=none}
+% Листинг без нумерации
+\lstdefinestyle{nonumbers}{numbers=none}
 
-\newcolumntype{Z}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X} %новый тип столбца для таблицы
-\newcolumntype{M}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X} %новый тип столбца для таблицы
+% Новые типы столбцов для таблиц
+\newcolumntype{Z}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X} 
+\newcolumntype{M}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
-
-\newcommand*\minus{\item[--]} %для списков
-\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}} %римские цифры
-
-\usepackage[nooneline]{caption} 
+% Выравнивание названий таблиц и рисунков
+\usepackage[nooneline]{caption}
 \captionsetup[table]{justification=raggedleft} 
 \captionsetup[figure]{justification=centering,labelsep=endash} 
 
-\usepackage{titlesec}
-
+% Формат заголовков
 \usepackage{subcaption}
-
+% 1го уровня
 \titleformat{\chapter}[display]
-{\normalfont\centering\bfseries}
-{\MakeUppercase{\chaptertitlename} \thechapter}
+{\normalfont\raggedright\bfseries}
+{}
 {0pt}
-{\MakeUppercase}
+{\thechapter\enskip}
 []
-     
+% Не нумерованые секции 1го уровня
+\titleformat{name=\chapter,numberless}[hang]
+{\normalfont\centering\bfseries}
+{}
+{0em}
+{
+	\MakeUppercase 	
+}
+
+% 2го уровня     
 \titleformat{\section}
 {\normalsize\bfseries}
 {\thesection}
 {1em}{}
-     
+% 3го уровня     
 \titleformat{\subsection}
 {\normalsize}
 {\thesubsection}
 {1em}{}
-     
-% Настройка вертикальных и горизонтальных отступов
-\titlespacing*{\chapter}{0pt}{-30pt}{8pt}
+
+
+
+
+   
+% Настройка вертикальных и горизонтальных отступов для заголовков
+\titlespacing*{\chapter}{0pt}{-9mm}{8pt} % -9 мм чтобы получить 20 мм от верхнего края стр
 \titlespacing*{\section}{\parindent}{*4}{*4}
 \titlespacing*{\subsection}{\parindent}{*2}{*2}
     
-% всавка изображений
-%\ifx\pdfoutput\undefined
-%\usepackage{graphicx}
-%\else
-%\usepackage[pdftex]{graphicx}
-%\fi
 % сквозная нумерация
 \usepackage{chngcntr}
 \counterwithout{figure}{chapter}
@@ -124,20 +123,14 @@
 \captionsetup{figurewithin=none, tablewithin=none} %сквозная нумерация таблиц
 \renewcommand{\thesubfigure}{\asbuk{subfigure}}
 
-% Чтоб t! работал как надо (рисунок вверху стр)
-\makeatletter
-\setlength{\@fptop}{0pt}
-\makeatother
-
 % Для приложений
 \renewcommand{\appendixtocname}{Приложения}
 \renewcommand{\appendixpagename}{Приложения}
+
 \makeatletter
 \g@addto@macro\appendices{\renewcommand{\thechapter}{\Asbuk{chapter}}}
 \makeatother
 
-
-\linespread{1.3}
 \usepackage[toc]{appendix}
     \renewcommand\appendixname{Приложение}
     \makeatletter
@@ -146,16 +139,46 @@
     \setcounter{section}{0}%
     \setcounter{subsection}{0}%
     \def\@chapapp{\appendixname}%
-    \addtocontents{toc}{\protect\redeflsection}
+     %\addtocontents{toc}{\protect\redeflsection}
     \def\thesection{\appendixname\hspace{0.2cm}\@arabic\c@section}}
     \makeatother
 \sloppy
 
-\usepackage{totcount}
+\usepackage[titles]{tocloft}
+\renewcommand{\contentsname}{Содержание}
+\renewcommand{\cfttoctitlefont}{\normalfont\bfseries\MakeUppercase}
+\renewcommand\cftchapfont{\mdseries}
+\renewcommand\cftchappagefont{\mdseries}
+ %\setlength\textwidth{3in} % just for this example                                             % below code (e.g vertical space)
 
-\newtotcounter{citnum} %From the package documentation
+
+%\let\LaTeXStandardTableOfContents\tableofcontents
+%\renewcommand{\tableofcontents}{%
+%	\begingroup%
+%	\renewcommand{\bfseries}{\relax}%
+%	\LaTeXStandardTableOfContents%
+%	\endgroup%
+%}%
+
+% Счетчик источников
+\newtotcounter{citnum}
 \def\oldbibitem{} \let\oldbibitem=\bibitem
 \def\bibitem{\stepcounter{citnum}\oldbibitem}
+
+\newcommand*\minus{\item[--]} % Символ минус для списков
+\newcommand{\rom}[1]{\uppercase\expandafter{\romannumeral #1\relax}} % Команда \rom для римских цифр
+
+% Чтоб t! работал как надо (рисунок вверху стр)
+\makeatletter
+\setlength{\@fptop}{0pt}
+\makeatother
+
+\DeclareRobustCommand{\gobblefour}[4]{}
+\newcommand*{\SkipTocEntry}{\addtocontents{toc}{\gobblefour}}
+
+%определенные страницы
+%\outputonly{97-102}
+%\usepackage{ltablex}
 
 \begin{document}
 	\setboolean{@twoside}{false}
@@ -163,15 +186,15 @@
 	\clearpage
 	\thispagestyle{empty}
 		\begin{tikzpicture}[remember picture, overlay]
-			\node at (9, -3.5) {Робототехника и комплексная автоматизация};
-			\node at (9, -4.5) {Компьютерные системы автоматизации производства};
-			\node at (8, -10.3) {Интегрированная система поддержки принятия решения о выборе};
-			\node at (8, -11.1) {режимов механической обработки тонкостенных деталей};
-			\node at (14.5, -14.52) {П.А. Еремейкин};
-			\node at (3, -14.5) {РК9-121};
-			\node at (14.6, -15.8) {А.Д. Жаргалова};
-			\node at (14.4, -21.30) {Л.А. Силаева};
-			\node at (14.4, -22.7) {А.С. Козодаев};
+			\node at (8.00-0.5, -3.5) {\noindent Робототехника и комплексная автоматизация};
+			\node at (8.00-0.5, -4.5) {Компьютерные системы автоматизации производства};
+			\node at (7.00-0.5, -10.3) {Интегрированная система поддержки принятия решения о выборе};
+			\node at (7.00-0.5, -11.1) {режимов механической обработки тонкостенных деталей};
+			\node at (13.5-0.5, -14.52) {П.А. Еремейкин};
+			\node at (2.00-0.5, -14.5) {РК9-121};
+			\node at (13.6-0.5, -15.8) {А.Д. Жаргалова};
+			\node at (13.4-0.5, -21.30) {Л.А. Силаева};
+			\node at (13.4-0.5, -22.7) {А.С. Козодаев};
 		\end{tikzpicture}}]{titul.pdf}
 
 	\setboolean{@twoside}{false}
@@ -179,12 +202,24 @@
 	\clearpage
 	\thispagestyle{empty}
 		\begin{tikzpicture}[remember picture, overlay]
-			\node at (15.7, -3.67) {РК9};
-			\node at (4.4, -8.3) {РК9-121};
-			\node at (8.4, -9.3) {Еремейкин Петр Александрович};
-			\node at (10.7, -10.75) {Интегрированная~~~система~~~поддержки~~~принятия};
-			\node at (8, -11.45) {решения~~о~~выборе~~режимов~~механической~~обработки~~тонкостенных};
-			\node at (0.7, -12.15) {деталей};
+			\node at (14.7-0.5, -3.67) {РК9};
+			\node at (3.40-0.5, -8.3) {РК9-121};
+			\node at (7.40-0.5, -9.3) {Еремейкин Петр Александрович};
+			\node at (9.70-0.5, -10.75) {Интегрированная~~~система~~~поддержки~~~принятия};
+			\node at (7.00-0.5, -11.45) {решения~~о~~выборе~~режимов~~механической~~обработки~~тонкостенных};
+			\node at (-0.3-0.5, -12.15) {деталей};
+			\node at (3.30-0.5, -18.45) {Техническое задание};
+			\node at (3.05-0.5, -19.05) {1. Определить основания разработки};
+			\node at (3.70-0.5, -19.6) {2. Сформулировать назначение разработки};
+			\node at (7.38-0.5, -20.18) {3. Выявить требования к функциональным характеристикам и надежности};
+			\node at (3.00-0.5, -20.72) {4. Установить условия эксплуатации};
+			\node at (3.70-0.5, -21.27) {5. Определить стадии и этапы разработки};
+			\node at (4.60-0.5, -21.82) {Концептуальное проектирование};
+			\node at (7.20-0.5, -22.39) {1. Выбор методов создания интегрированной~~системы~поддержки~приня-};
+			\node at (1.50-0.5, -22.94) {тия решений (ИСППР)};
+			\node at (7.23-0.5, -23.49) {2. Выбор языка программирования, модульной платформы и системы мо- };
+			\node at (0.30-0.5, -24.14) {делирования};
+			\node at (2.45-0.5, -24.65) {3. Формулировка целей и задач};
 		\end{tikzpicture}}]{task1.pdf}
 	
 	\setboolean{@twoside}{false}
@@ -192,14 +227,26 @@
 		\clearpage
 		\thispagestyle{empty}
 		\begin{tikzpicture}[remember picture, overlay]
-		\node at (8.2, -7.13) {Расчет затрат на создание интегрированной системы поддержки принятия};
-		\node at (0.7, -7.7) {решений};
-		\node at (8.0, -11.35) {Провести~~анализ~~опасных~~и~~вредных~~факторов,~~воздействующих на};
-		\node at (8.2, -11.95) {пользователя~~интегрированной~~системы~~поддержки~~принятия решения,};
-		\node at (8.12, -12.52) {выполнить расчет заземления, выбрать рациональный способ утилизации};
-		\node at (1.4, -13.1) {печатных плат};
-		\node at (14.5, -23) {А.Д. Жаргалова};
-		\node at (14.5, -24.15) {П.А. Еремейкин};
+%		\draw[very thin,color=gray] (-100,-100) grid (100,100);
+		\node at (3.90-0.5, 0.11) {Эскизное проектирование};
+		\node at (3.40-0.5, -0.47) {1. Разработать функциональную модель};
+		\node at (7.40-0.5, -1.03) {2. Разработать структуру входных и выходных данных для анализа дефор-};
+		\node at (-0.5-0.5, -1.58) {маций};
+		\node at (7.40-0.5, -2.13) {3. Определить набор~~входных параметров для модуля калькулятора режи-};
+		\node at (0.20-0.5, -2.74) {мов резания};
+		\node at (3.70-0.5, -3.28) {Рабочее проектирование};
+		\node at (5.87-0.5, -3.82) {1. Разработать информационную модель (диаграмму классов)};
+		\node at (7.30-0.5, -4.37) {2. Реализовать~~модули~~в программном~~коде:~~а) калькулятор р.р. б) мо-};
+		\node at (7.30-0.5, -4.92) {дуль~~CAE~~расчета в) модуль визуального отображения г) модуль вывода};
+		\node at (3.90-0.5, -5.47) {результатов моделирования в .docx формате};
+		\node at (7.20-0.5, -7.13) {Расчет затрат на создание интегрированной системы поддержки принятия};
+		\node at (-0.3-0.5, -7.7) {решений};
+		\node at (7.00-0.5, -11.35) {Провести~~анализ~~опасных~~и~~вредных~~факторов,~~воздействующих на};
+		\node at (7.20-0.5, -11.95) {пользователя~~интегрированной~~системы~~поддержки~~принятия решения,};
+		\node at (7.12-0.5, -12.52) {выполнить расчет заземления, выбрать рациональный способ утилизации};
+		\node at (0.40-0.5, -13.1) {печатных плат};
+		\node at (13.5-0.5, -23) {А.Д. Жаргалова};
+		\node at (13.5-0.5, -24.15) {П.А. Еремейкин};
 		\end{tikzpicture}}]{task2.pdf}
 
 	\setboolean{@twoside}{false}
@@ -207,26 +254,14 @@
 		\clearpage
 		\thispagestyle{empty}
 		\begin{tikzpicture}[remember picture, overlay]
-		\node at (8.2, -7.05) {Еремейкин Петр Александрович};
-		\node at (3.8, -2.7) {РК};
-		\node at (3.8, -3.44) {РК9};
-		\node at (3.8, -4.24) {РК9-121};
-		\node at (10.7, -7.95) {Интегрированная~~~система~~~поддержки~~~принятия};
-		\node at (8, -8.65) {решения~~о~~выборе~~режимов~~механической~~обработки~~тонкостенных};
-		\node at (0.7, -9.35) {деталей};
+		\node at (7.20-0.5, -7.05) {Еремейкин Петр Александрович};
+		\node at (2.80-0.5, -2.7) {РК};
+		\node at (2.80-0.5, -3.44) {РК9};
+		\node at (2.80-0.5, -4.24) {РК9-121};
+		\node at (9.70-0.5, -7.95) {Интегрированная~~~система~~~поддержки~~~принятия};
+		\node at (7.00-0.5, -8.65) {решения~~о~~выборе~~режимов~~механической~~обработки~~тонкостенных};
+		\node at (-0.3-0.5, -9.35) {деталей};
 		\end{tikzpicture}}]{plan.pdf}
-
- 	\begin{titlepage}
- 		\begin{center}
- 			\textbf{АННОТАЦИЯ}
- 		\end{center}
- 		
-	Расчетно-пояснительная записка к дипломному проекту «Интегрированная система поддержки принятия решения о выборе режимов механической обработки тонкостенных деталей» содержит \pageref{LastPage} страниц машинописного текста, \totalfigures\ рисунков, \totaltables\ таблиц,  	\total{citnum}\ источников, 2 приложения.
-	
-	В расчетно-пояснительной записке описаны предпосылки создания системы, подробно рассмотрены этапы проектирования. Также уделено внимание техническим средствам разработки: системам управления базами данных, языкам программирования, программным платформам и библиотекам. Организационно-экономическая часть записки посвящена определению затрат на разработку интегрированной системы поддержки принятия решения. Кроме того, рассмотрены вопросы охраны труда пользователя системы: определены вредные и опасные факторы, способы снижения их воздействия, а также рассчитана  система защитного заземления. В экологической части расчетно-пояснительной записки описаны способы утилизации печатных плат.
-
-	\thispagestyle{empty}
- 	\end{titlepage}
  
 %	\begin{titlepage}
 %		\vspace*{-2cm}
@@ -266,8 +301,18 @@
 	\setcounter{page}{2}
 	\tableofcontents
 	
+
+	\chapter*{Аннотация}
+	\addcontentsline{toc}{chapter}{\MakeUppercase{Аннотация}}
+		
+	Расчетно-пояснительная записка к дипломному проекту «Интегрированная система поддержки принятия решения о выборе режимов механической обработки тонкостенных деталей» содержит \pageref{LastPage} страниц машинописного текста, \totalfigures\ рисунков, \totaltables\ таблиц,  	\total{citnum}\ источников, 2 приложения.
+		
+	В расчетно-пояснительной записке описаны предпосылки создания системы, подробно рассмотрены этапы проектирования. Также уделено внимание техническим средствам разработки: системам управления базами данных, языкам программирования, программным платформам и библиотекам. Организационно-экономическая часть записки посвящена определению затрат на разработку интегрированной системы поддержки принятия решения. Кроме того, рассмотрены вопросы охраны труда пользователя системы: определены вредные и опасные факторы, способы снижения их воздействия, а также рассчитана  система защитного заземления. В экологической части расчетно-пояснительной записки описаны способы утилизации печатных плат.
+
+	\newpage		
 	
-	\chapter{Введение}
+	\chapter*{Введение}
+	\addcontentsline{toc}{chapter}{\MakeUppercase{Введение}}
 	Эксплуатационные характеристики изделий машиностроения в большой мере зависят от качества изготовления деталей, составляющих изделие. Качество изготовления определяется степенью соответствия параметров готовой детали и параметров, достижение которых требуется документацией. В роли такого параметра может выступать точность изготовления геометрических размеров, определяемая допуском. 
 	
 	Погрешности различных видов препятствуют абсолютно точному воспроизведению заданных параметров. Например, на точность изготовления деталей влияют погрешности базирования, измерения, настройки инструмента и т.д. При обработке нежестких деталей на первый план выходят погрешности, связанные с деформацией самой детали.
@@ -382,7 +427,7 @@
 		\minus монитор с разрешением от 1024*768 и выше.
 	\end{itemize}
 
-	\section{Требования к информационной и программной совместимости}
+	\section[Требования к информационной и программной совместимости]{Требования к информационной и программной \\совместимости}
 	Разрабатываемая система должна работать на ПЭВМ под управлением Microsoft Windows 7. Требуется обеспечить работоспособность системы на платформе Java SE версии 8 Update 71 или новее. Минимальная версия Abaqus FEA 6.14-1.
 	
 	\section{Стадии и этапы разработки}
@@ -760,7 +805,7 @@
 	
 	В качестве клиента выступает класс, описывающий действия при нажатии на кнопку ``Загрузить модель''. Этот класс назван Load, он реализует интерфейс \texttt{java.awt.event.ActionListener}, объявленный в JDK. Вызовом метода \texttt{createModelLoader(File file)} класс Load запрашивает создание экземпляра \texttt{ModelLoader}. В зависимости от типа файла (.sqlite или .xlsx) клиенту предоставляется та или иная реализация \texttt{AbstractModelLoader} через ссылку типа \texttt{ModelLoader}. Конкретный класс возвращаемого объекта не играет роли для клиента, так как известно, что любая реализация интерфейса \texttt{ModelLoader} имеет метод \texttt{load()}, возвращающий объект модели \texttt{Model}. Именно этот объект и требуется для работы клиента и отображения загруженной модели. 
 	
-	Имеются две реализации абстрактного класса \texttt{AbstractModelLoader} в соответствии с требуемыми типами хранилищ -- это \texttt{DbModelLoader} и \texttt{XlsxModelLoader}. Первая реализация используется для чтения информации из базы данных и использует JDBC драйвер для выполнения SQL запросов. Вторая реализация считывает данные из xlsx файла при помощи библиотеки с открытым исходным кодом Apache POI. 
+	Имеются две реализации абстрактного класса \texttt{AbstractModelLoader} в соответствии с требуемыми типами хранилищ -- это \texttt{DbModelLoader} и \texttt{XlsxModelLoader}. Первая реализация используется для чтения информации из базы данных и использует JDBC драйвер для выполнения SQL запросов. Вторая реализация считывает данные из xlsx файла при помощи библиотеки Apache POI. 
 	
 	Собственно объект доступа к данным имеет тип \texttt{ModelDao} для чтения всей модели и \texttt{ModelParameterDao} для чтения отдельного параметра из модели. \texttt{ModelDao} и \texttt{ModelParameterDao} являются интерфейсами, а общая функциональность для всех видов хранилищ вынесена в абстрактные классы \texttt{AbstractModelDao} и \texttt{AbstractModelParameterDao}.  
 	
@@ -1535,7 +1580,7 @@
 	\end{eqnarray}
 
 	
-	\section{Определение затрат на разработку интегрированной системы} 
+	\section[Требования к информационной и программной совместимости]{Определение затрат на разработку интегрированной \\ системы} 
 	Затраты на разработку программной продукции могут быть представлены в виде суммы основных статей расходов, таких как амортизационные отчисления, основная заработная плата, дополнительная заработная плата, отчисления на социальное страхование, накладные расходы.
 	\subsection{Расчет основной заработной платы}
 	В основную заработную плату включается заработная плата всех исполнителей, непосредственно занятых разработкой программного продукта, с учетом их должностного оклада и времени участия в разработке. Расчет ведется по формуле:
@@ -1916,11 +1961,11 @@
 	\subsection{Выводы}
 	В целом, устаревшие и неисправные печатные платы пригодны для переработки и повторного использования. Высокий процент содержания ценных металлов делает их извлечение экономически выгодным. При ответственном подходе к переработке печатных плат есть возможность добиться минимального ущерба окружающей среде, так как даже дешевые неметаллические продукты переработки имеют повторное применение. 
 		
-	\renewcommand{\bibname}{\centerline{\large{Список литературы}}}
+	\renewcommand{\bibname}{\centerline{\MakeUppercase{Список использованных источников}}}
 	\bibliographystyle{utf8gost705u} 
 
 	\bibliography{biblio}
-	\addcontentsline{toc}{chapter}{Список литературы} % добавляем пункт "Литература" в
+	\addcontentsline{toc}{chapter}{\MakeUppercase{Список использованных источников}} % добавляем пункт "Литература" в
 
 
 
@@ -1935,8 +1980,21 @@
 	\setcounter{figure}{0}
 	\renewcommand{\thefigure}{\Asbuk{chapter}\arabic{figure}}
 
-	\begin{appendices}
-		\chapter{Таблицы коэффициентов} \label{app:tables}
+%	\setcounter{chapter}{0}	
+%	\renewcommand\chaptername{\MakeUppercase{\centerling Приложение }}
+	\renewcommand{\thechapter}{\Asbuk{chapter}}
+
+	\setcounter{chapter}{0}	
+	\titleformat{name=\chapter}[display]
+	{\normalfont\centering\bfseries}
+	{\MakeUppercase{Приложение} \thechapter}
+	{0pt}
+	{}
+
+ %	\begin{appendices} 
+	\SkipTocEntry\chapter{Таблицы коэффициентов} \label{app:tables}
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ А Таблицы коэффициентов}
+	
 			 
 	 \begin{table}[H]
 		\centering
@@ -2076,7 +2134,8 @@
 	\end{table}			
 	
 		 
-	\chapter{Результаты испытаний} \label{app:testing}
+	\SkipTocEntry\chapter{Результаты испытаний} \label{app:testing}
+	\addcontentsline{toc}{chapter}{ПРИЛОЖЕНИЕ Б Результаты испытаний}
 
 	\setcounter{table}{0}		
 	
@@ -2145,7 +2204,7 @@
 		\label{fig:arbitrary-mode}
 	\end{figure}
 
-	\end{appendices}
+ %	\end{appendices} 
 	
 	%restore actual value of tab & figure count (without appendix to make totalcount work)
 	\setcounter{figure}{\figcount}		
