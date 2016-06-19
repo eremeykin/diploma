@@ -46,6 +46,7 @@ ENTRY
     language
     booklanguage
     url
+	description
   }
   {}
   { label }
@@ -517,7 +518,7 @@ FUNCTION {format.names}
       nameptr #1 >
         {
           nameptr #4 =
-          numnames #3 > and
+          numnames #4 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
@@ -562,7 +563,7 @@ FUNCTION {format.names.rev}
         nameptr #1 >
         {
           nameptr #4 =
-          numnames #3 > and
+          numnames #4 > and
             { "others" 't :=
               #1 'namesleft := }
             'skip$
@@ -957,6 +958,19 @@ FUNCTION {author.before}
   if$
 }
 
+% Добавлено для статьи
+FUNCTION {articleauthor.before}
+{
+  author empty$
+    'skip$
+    {author num.names$ #100500 < % true всегда
+      {format.authors output
+       new.sentence}
+      'skip$
+    if$}
+  if$
+}
+
 FUNCTION {bookauthor.before}
 {
   bookauthor empty$
@@ -1019,7 +1033,7 @@ FUNCTION {format.url}
 { url empty$
     { "" }
     { after.sentence 'output.state :=
-      "URL:  " url * "" *
+      "[Электронный ресурс]~--- " url * "" *
     }
   if$
 }
@@ -1046,7 +1060,7 @@ FUNCTION {format.annoteurl}       %%%%%%%% правлено
 { annote empty$ url empty$ or
     { "" }
 { after.sentence 'output.state :=
-  "URL:" "~" * url * " " * "\BibAnnote{" * annote * "}" *
+  "[Электронный ресурс]~---" " " * url * " " * "\BibAnnote{" * annote * "}" *
 }
   if$
 }
@@ -1060,12 +1074,13 @@ FUNCTION {format.annotedoi}       %%%%%%%% правлено
   if$
 }
 
+
 FUNCTION {article}
 { output.bibitem
-  author.before
+  articleauthor.before
   format.btitle "title" output.check
   new.slash
-  author.after
+  %%%%%%%% author.after убрано
   new.dblslash
 %%journal emphasize "journal" output.check%% правлено
   journal "journal" output.check

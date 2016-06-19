@@ -9,5 +9,6 @@
 *.out
 *.py
 *.lnk
+*.dvi
 diff.pdf
 docs
